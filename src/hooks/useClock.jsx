@@ -25,13 +25,11 @@ const useClock = (timezone, offset=0) => {
         const localClockOffset = d.getTimezoneOffset();
         d = addMinutes(d, localClockOffset);
         setUTC(d);
-    },[])
+    }, []);
 
     useEffect(() => {
         if(utc !== null && timezone){
-            if(timezone === 'PST' || timezone === 'EST') {
-                offset = TIMEZONE_OFFSET[timezone]
-            }
+            offset = TIMEZONE_OFFSET[timezone] ?? offset;            
             const newUtc = addMinutes(utc, offset);
             setState({
                 ...state,
@@ -43,11 +41,12 @@ const useClock = (timezone, offset=0) => {
                 ...state,
                 date_utc0: utc,
                 date: utc
-            });
-        }
+            })
+        };
     }, [utc]);
 
-    console.log(utc)
+
+    // console.log(utc)
 
     return {
         clock: state,
