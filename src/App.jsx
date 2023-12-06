@@ -5,13 +5,8 @@ import ClockList from './components/clock-list'
 import useClock from './hooks/useClock'
 
 function App() {
-   const {clock: local} = useClock();
-   const {clock: est} = useClock('EST');
-   const {clock: pst} = useClock('PST');
-
-   console.log('Local UTC', local.date)
-   console.log('EST', est.date)
-   console.log('PST', pst.date)
+   const {date} = useClock();
+   console.log(date)
    return (
       <div>
           <h1>Track Zone</h1>
