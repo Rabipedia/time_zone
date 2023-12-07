@@ -5,12 +5,16 @@ import ClockList from './components/clock-list'
 import useClock from './hooks/useClock'
 
 function App() {
-   const {date} = useClock();
-   console.log(date)
+   const {date, localTimezone, localOffset} = useClock();
+   
    return (
       <div>
           <h1>Track Zone</h1>
-          <LocalClock/>
+          <LocalClock 
+            date={date}
+            timezone={localTimezone}
+            offset={localOffset}
+          />
           <ClockList/>
       </div>
    )
