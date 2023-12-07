@@ -3,6 +3,7 @@ import './App.css'
 import LocalClock from './components/local-clock'
 import ClockList from './components/clock-list'
 import useClock from './hooks/useClock'
+import ClockActions from './components/shared/clock-actions'
 
 function App() {
    const {date, localTimezone, localOffset} = useClock();
@@ -16,6 +17,7 @@ function App() {
             offset={localOffset}
           />
           <ClockList/>
+          <ClockActions/>
       </div>
    )
 }
