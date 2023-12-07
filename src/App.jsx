@@ -5,19 +5,32 @@ import ClockList from './components/clock-list'
 import useClock from './hooks/useClock'
 import ClockActions from './components/shared/clock-actions'
 
+const LOCAL_CLOCK_INIT = {
+   title: '',
+   timezone: '',
+   offset: 0,
+   date: null
+}
+
 function App() {
-   const {date, localTimezone, localOffset} = useClock();
+   const [localClock, setLocalClock] = useState({...LOCAL_CLOCK_INIT});
+
+   const updateLocalClock = (data) => {
+      setLocalClock({
+         ...localClock,
+         ...data
+      })
+   }
    
    return (
       <div>
           <h1>Track Zone</h1>
           <LocalClock 
-            date={date}
-            timezone={localTimezone}
-            offset={localOffset}
+            clock={localClock}
+            updateLocalClock={updateLocalClock}
           />
           <ClockList/>
-          <ClockActions/>
+          
       </div>
    )
 }
