@@ -34,7 +34,7 @@ const useClock = (timezone, offset=0) => {
                 //TODO Find Timezone
             }     
         }
-    }, [utc]);
+    }, [utc, timezone, offset]);
 
 
     // console.log(utc)

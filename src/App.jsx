@@ -6,7 +6,7 @@ import useClock from './hooks/useClock'
 import ClockActions from './components/shared/clock-actions'
 
 const LOCAL_CLOCK_INIT = {
-   title: '',
+   title: 'My clock',
    timezone: '',
    offset: 0,
    date: null
