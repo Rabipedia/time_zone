@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import {addMinutes} from "date-fns";
+import {TIMEZONE_OFFSET} from "../constants/timezone"
 
-const TIMEZONE_OFFSET = {
-    PST: -7 * 60,
-    EST: -4 * 60
-}
 const useClock = (timezone, offset=0) => {
     const [localDate, setLocalDate] = useState(null);
     const [localOffset, setLocalOffset] = useState(0);
