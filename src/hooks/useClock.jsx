@@ -15,7 +15,6 @@ const useClock = (timezone, offset=0) => {
         setUTC(d);
         setLocalOffset(lo);
     }, []);
-    console.log(localOffset)
 
     useEffect(() => {
         if(utc !== null){
@@ -39,8 +38,8 @@ const useClock = (timezone, offset=0) => {
     return {
         date: localDate,
         dateUtc: utc,
-        timezone: timezone || localTimezone,
-        offset: offset || localOffset,
+        offset: offset || -localOffset,
+        timezone: timezone || localTimezone,      
     }
 }
 

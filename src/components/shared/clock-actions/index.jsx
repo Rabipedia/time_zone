@@ -3,32 +3,41 @@ import ClockForm from "../clock-form";
 
 const ClockActions = ({local = false, clock, updateLocalClock}) => {
     const [isEdit, setIsEdit] = useState(false);
-    const defaultOffsets = [-11.5, -11, -10.5, -10, -9.5, -9, -8.5, -8, -5.5, 0, 5, 8.5, 10, 10.5, 11];
+    const [isCreate, setIsCreate] = useState(false);
 
-    // const handleChange = (e) => {
-    //     let {name, value} = e.target;
-    //     if(name === 'offset') {
-    //         value = Number(value) * 60;
-    //     }
-    //     updateLocalClock({
-    //         [name]: value
-    //     })
-    // }
+    const handleClock = (values) => {
+        console.log(values);
+    }
+
+   
     return (
         <div>
             <button onClick={()=> setIsEdit(!isEdit)}>Edit</button>
             {
-                local ? <button>Create</button> : <button>Delete</button>
+                local ? <button onClick={()=> setIsCreate(!isCreate)}>Create</button> : <button>Delete</button>
             }
             {
                 isEdit  && (
-                    <ClockForm
+                   <>
+                     <h3>Update Your Clock</h3>
+                     <ClockForm
                         values={clock}
                         handleClock={updateLocalClock}
                         title={!local}
                         edit={true}
                     />
+                   </>
                    )
+            }
+            {
+                isCreate && (
+                    <>
+                        <h3>Create A New Clock</h3>
+                        <ClockForm
+                            handleClock={handleClock}
+                        />
+                    </>
+                )
             }
         </div>
     )
