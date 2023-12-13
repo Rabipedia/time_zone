@@ -20,7 +20,7 @@ const ClockForm = ({
         if(TIMEZONE_OFFSET[formValues.timezone]){
             setFormValues(prev => ({
                 ...prev,
-                offset: TIMEZONE_OFFSET[formValues.timezone]
+                offset: -TIMEZONE_OFFSET[formValues.timezone]
             }))
         }
     },[formValues.timezone])
