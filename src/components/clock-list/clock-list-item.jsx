@@ -14,6 +14,7 @@ const ClockListItem = ({clock, updateClock}) => {
             />
             <ClockActions
                 clock={clock}
+                updateClock={updateClock }
             />
         </div>
     )

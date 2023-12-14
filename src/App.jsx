@@ -42,7 +42,7 @@ function App() {
           <h1>Track Zone</h1>
           <LocalClock 
             clock={localClock}
-            updateLocalClock={updateLocalClock}
+            updateClock={updateLocalClock}
             createClock={createClock}
           />
           <ClockList 

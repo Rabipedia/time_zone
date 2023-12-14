@@ -51,7 +51,7 @@ const ClockForm = ({
                     name="title"
                     value={formValues.value}
                     onChange={handleChange}
-                    disabled={!title}
+                   // disabled={!title}
                 />
             </div>
             <div>
@@ -85,7 +85,7 @@ const ClockForm = ({
                     </select>
                 </div>
             )}
-            <button>{edit ? 'Update' : 'Create'}</button>
+            <button onClick={handleSubmit}>{edit ? 'Update' : 'Create'}</button>
         </form>
     )
 };
