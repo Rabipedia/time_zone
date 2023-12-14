@@ -36,6 +36,11 @@ function App() {
       });
       setClocks(updatedClocks);
    }
+
+   const deleteClock = (id) => {
+      const updatedClock = clocks.filter(clock => clock.id !== id);
+      setClocks(updatedClock)
+   }
    
    return (
       <div>
@@ -47,7 +52,9 @@ function App() {
           />
           <ClockList 
             clocks={clocks}
-            updateClock={updateClock}   
+            localClock={localClock.date}
+            updateClock={updateClock} 
+            deleteClock={deleteClock} 
          />
           
       </div>
