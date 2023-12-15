@@ -3,9 +3,11 @@ import useClock from "../../hooks/useClock";
 import ClockList from "../clock-list";
 import ClockActions from "../shared/clock-actions";
 import ClockDisplay from "../shared/clock-display";
+import useTimer from "../../hooks/useTimer";
 
 const LocalClock = ({ clock, updateClock, createClock }) => {
     const { date, timezone, offset } = useClock(clock.timezone, clock.offset);
+    const timer = useTimer(date)
 
     useEffect(()=>{
         updateClock({
@@ -16,9 +18,9 @@ const LocalClock = ({ clock, updateClock, createClock }) => {
     },[date])
     return (
         <div>
-            {date && (   
+            {timer && (   
                 <ClockDisplay
-                    date={date}
+                    date={timer}
                     title= {clock.title}
                     timezone={timezone}
                     offset={offset}
